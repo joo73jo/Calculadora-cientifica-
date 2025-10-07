@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora Científica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Número 1</ion-label>
+    <ion-input type="number" [(ngModel)]="num1"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-margin-top">
+    <ion-label position="stacked">Número 2 (opcional para algunas operaciones)</ion-label>
+    <ion-input type="number" [(ngModel)]="num2"></ion-input>
+  </ion-item>
+
+ 
+   <ion-button expand="block" fill="outline" (click)="calculate('sum')">Suma</ion-button>
+  <ion-button expand="block" fill="outline" (click)="calculate('sub')">Restar</ion-button>
+  <ion-button expand="block" fill="outline" (click)="calculate('mul')">Multiplicación</ion-button>
+  <ion-button expand="block" fill="outline" (click)="calculate('div')">División</ion-button>
+
+ 
+  <ion-button expand="block" fill="solid" (click)="calculate('sen')">Sen</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('cos')">Cos</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('tan')">Tan</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('pot')">Potencia</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('log')">Log (base 10)</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('ln')">Ln</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('porc')">Porcentaje</ion-button>
+  <ion-button expand="block" fill="solid" (click)="calculate('raiz')">Raíz Cuadrada</ion-button>
+
+  <ion-card *ngIf="result !== null" class="ion-margin-top">
+    <ion-card-header>
+      <ion-card-title>Resultado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ operation }}: <strong>{{ result }}</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" fill="outline" color="danger" (click)="calculate('salir')">
+    Salir
+  </ion-button>
+</ion-content>
